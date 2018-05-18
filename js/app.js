@@ -200,8 +200,6 @@ function checkMatched (){
                                      
                 }, 1000);
                
-                
-
             }
             
         }
@@ -209,21 +207,29 @@ function checkMatched (){
 }
 
 //Fuction timer
-let timerGame = 120;
+let timerGame = 300;
+let second, minute ;
 function timer() {
     let interval = setInterval (()=>{
+        // if (second <=9) {
+        //     second = "0"+second;
+        // }
+
         timerGame--;
+
         if (timerGame>0) {
-            $('#seconds').text(timerGame);
-            if (timerGame === 60) {
+            minute = parseInt(timerGame / 60);
+            second = timerGame % 60;
+            $('.timer').text(`Time elabsed 0${minute} : ${second}`);
+            if (timerGame === 120) {
                 $('#seconds').css('color','goldenrod');
             }
             
-            if (timerGame === 30) {
+            if (timerGame === 60) {
                 $('#seconds').css('color','orange');
             }
             
-            if (timerGame === 10) {
+            if (timerGame === 20) {
                 $('#seconds').css('color','red');
                 $('#seconds').addClass('animated flash infinite');
             }
@@ -233,9 +239,12 @@ function timer() {
             }
         }
         else {
-            swal('Game Over','Time finished','error')
+            swal('Game Over','Time finished','error');
+            
             location.reload();//Remplacer par un swal
         }
+
+       
         
     },1000)
     
@@ -278,6 +287,12 @@ function starsRating() {
     }
     
 }
+
+
+
+
+// local storage
+
 
 
 
