@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/geometry2.png') fixed; /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -31,6 +31,16 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+}
+
+
+/* 
+ * Styeles for game board 
+ */
+
+#game-board {
+    display: flex;
+    justify-content: space-between;
 }
 
 /*
@@ -69,16 +79,21 @@ h1 {
     transform: rotateY(0);
     background: #02b3e4;
     cursor: default;
+    animation-timing-function: ease-in;
 }
 
 .deck .card.show {
-    font-size: 33px;
+    font-size: 48px;
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
-    font-size: 33px;
+    font-size: 48px;
+}
+
+.deck .card.not-match {
+    background: red;
 }
 
 /*
@@ -96,6 +111,7 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+    color: goldenrod;
 }
 
 .score-panel .stars li {
@@ -103,7 +119,13 @@ h1 {
     display: inline-block;
 }
 
-.score-panel .restart {
+#restart {
     float: right;
     cursor: pointer;
+}
+
+
+/*Hide audio elements*/
+audio {
+    display: none;
 }
