@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/cubes.png') fixed; /* Background pattern from Subtle Patterns */
+    background: linear-gradient(160deg, #87999973 0%, #bcd4d7 100%),url(../img/cubes.png) fixed; /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -50,7 +50,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: radial-gradient(farthest-corner at 29% 26%, #fff , #475f5a ); /*radial-gradient(farthest-corner at 60% 55%, #89c2b8 , #fff );*/
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -64,7 +64,7 @@ h1 {
 .deck .card {
     height: 125px;
     width: 125px;
-    background: #2e3d49;
+    background: #16445d;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
