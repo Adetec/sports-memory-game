@@ -50,7 +50,7 @@ body {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #cdd4d8 ); /*radial-gradient(farthest-corner at 60% 55%, #89c2b8 , #fff );*/
+    background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #83afb5 ); /*radial-gradient(farthest-corner at 60% 55%, #89c2b8 , #fff );*/
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
