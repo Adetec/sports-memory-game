@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: url(../img/cubes.png) fixed; /* Background pattern from Subtle Patterns */
+    background: radial-gradient(farthest-side at 40% 13%, rgba(228, 228, 228, 0.2) , rgba(197, 204, 204, 0.2) ), url(../img/Sports.png) fixed; /* Background pattern from Subtle Patterns */
     font-family: 'Mina', sans-serif;
 }
 
@@ -50,7 +50,7 @@ body {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #83afb5 ); /*radial-gradient(farthest-corner at 60% 55%, #89c2b8 , #fff );*/
+    background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #8fbfc5 ); /*radial-gradient(farthest-corner at 60% 55%, #89c2b8 , #fff );*/
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
