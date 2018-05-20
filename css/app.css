@@ -39,6 +39,8 @@ body {
     justify-content: space-between;
     margin: auto;
     padding: 48px;
+    max-width: 660px;
+    font-size: 1.5em;
 }
 
 /*
