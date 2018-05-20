@@ -4,7 +4,7 @@
  * Create a list that holds all of your cards
  */
 
-let symbols = ['football-ball','football-ball','volleyball-ball','volleyball-ball','quidditch','quidditch','futbol','futbol','table-tennis','table-tennis','dumbbell','dumbbell','golf-ball','golf-ball','basketball-ball','basketball-ball'];
+let symbols = ['football-ball','football-ball','volleyball-ball','volleyball-ball','quidditch','quidditch','futbol','futbol','table-tennis','table-tennis','hockey-puck','hockey-puck','baseball-ball','baseball-ball','basketball-ball','basketball-ball'];
 
 
 /*
