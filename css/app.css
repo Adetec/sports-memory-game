@@ -21,12 +21,12 @@ body {
     font-family: 'Coda', cursive;
 }
 
-.container {
+/* .container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
+} */
 
 h1 {
     font-family: 'Open Sans', sans-serif;
