@@ -64,7 +64,7 @@ body {
 .deck .card {
     height: 125px;
     width: 125px;
-    background: #16445d;
+    background: radial-gradient(farthest-side at 48% 23%, #ffffff0d , #16445d7d ), url(../img/grid-pattern.png) cornflowerblue; /*https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sudoku_template.svg/2000px-Sudoku_template.svg.png*/
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
