@@ -37,6 +37,8 @@ body {
 #game-board {
     display: flex;
     justify-content: space-between;
+    margin: auto;
+    padding: 48px;
 }
 
 /*
