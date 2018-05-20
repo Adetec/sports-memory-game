@@ -65,7 +65,8 @@ body {
 .deck .card {
     height: 125px;
     width: 125px;
-    background: #2a3552;
+    background: url(../img/filet.png) #2a3552; /*credit: https://www.casalsport.com/img/W/CAS/ST/FB/20/16/FB2016/FB2016_ST.jpg*/
+    background-size: cover;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
@@ -84,13 +85,13 @@ body {
 }
 
 .deck .card.show {
-    font-size: 48px;
+    font-size: 33px;
 }
 
 .deck .card.match {
     cursor: default;
     background: #50bbb5;
-    font-size: 48px;
+    font-size: 33px;
 }
 
 .deck .card.not-match {

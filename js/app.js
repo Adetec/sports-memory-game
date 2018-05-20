@@ -4,7 +4,7 @@
  * Create a list that holds all of your cards
  */
 
-let symbols = ['diamond','diamond','paper-plane-o','paper-plane-o','anchor','anchor','bolt','bolt','cube','cube','leaf','leaf','bicycle','bicycle','bomb','bomb'];
+let symbols = ['football-ball','football-ball','volleyball-ball','volleyball-ball','quidditch','quidditch','futbol','futbol','table-tennis','table-tennis','dumbbell','dumbbell','golf-ball','golf-ball','basketball-ball','basketball-ball'];
 
 
 /*
@@ -165,7 +165,8 @@ function checkMatched (){
                         text: "Congratulation! You win, You have "+ starsNum + " and you've finshed at " + timerGame + " Secondes",
                         type: 'success',
                         showCancelButton: false,
-                        confirmButtonText: 'Play again?'
+                        confirmButtonText: 'Play again?',
+                        confirmButtonColor:'#50bbb5', //Set the same color as match card
                       }).then((result) => {
                         if (result.value) {
                             location.reload();
