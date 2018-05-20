@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: linear-gradient(160deg, #87999973 0%, #bcd4d7 100%),url(../img/cubes.png) fixed; /* Background pattern from Subtle Patterns */
+    background: url(../img/cubes.png) fixed; /* Background pattern from Subtle Patterns */
     font-family: 'Mina', sans-serif;
 }
 
