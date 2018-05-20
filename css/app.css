@@ -65,7 +65,7 @@ body {
 .deck .card {
     height: 125px;
     width: 125px;
-    background: url(../img/grid-pattern.png) #2a3552; /*https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sudoku_template.svg/2000px-Sudoku_template.svg.png*/
+    background: #2a3552;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
