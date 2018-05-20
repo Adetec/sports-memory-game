@@ -100,12 +100,10 @@ body {
 
 .score-panel {
     text-align: left;
-    width: 345px;
     margin-bottom: 10px;
 }
 
 .score-panel .stars {
-    margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
