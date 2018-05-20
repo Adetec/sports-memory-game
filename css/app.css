@@ -18,7 +18,7 @@ body {
 
 body {
     background: radial-gradient(farthest-side at 40% 13%, rgba(228, 228, 228, 0.2) , rgba(197, 204, 204, 0.2) ), url(../img/Sports.png) fixed; /* Background pattern from Subtle Patterns */
-    font-family: 'Mina', sans-serif;
+    font-family: 'Baloo Chettan', cursive;
 }
 
 /* .container {
