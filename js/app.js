@@ -220,7 +220,7 @@ function timer() {
         if (timerGame>0) {
             minute = parseInt(timerGame / 60);
             second = timerGame % 60;
-            $('.timer').text(`Time elabsed 0${minute} : ${second}`);
+            $('.timer').text(`Elabsed time 0${minute} : ${second}`);
             if (timerGame === 120) {
                 $('#seconds').css('color','goldenrod');
             }
