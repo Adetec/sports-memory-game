@@ -207,8 +207,8 @@ function checkMatched (){
     }
 }
 
-//Fuction timer
-let timerGame = 300;
+//Function timer
+let timerGame = 0;
 let second, minute ;
 function timer() {
     let interval = setInterval (()=>{
@@ -216,21 +216,23 @@ function timer() {
         //     second = "0"+second;
         // }
 
-        timerGame--;
+        timerGame++;
 
-        if (timerGame>0) {
+        if (timerGame<=300) {
             minute = parseInt(timerGame / 60);
             second = timerGame % 60;
-            $('.timer').text(`Elabsed time 0${minute} : ${second}`);
+            (second < 10)? $('.timer').text(`Elabsed time 0${minute} : 0${second}`) :  $('.timer').text(`Elabsed time 0${minute} : ${second}`);
+            
+           
             if (timerGame === 120) {
                 $('#seconds').css('color','goldenrod');
             }
             
-            if (timerGame === 60) {
+            if (timerGame === 270) {
                 $('#seconds').css('color','orange');
             }
             
-            if (timerGame === 20) {
+            if (timerGame === 280) {
                 $('#seconds').css('color','red');
                 $('#seconds').addClass('animated flash infinite');
             }
