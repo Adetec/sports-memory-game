@@ -241,12 +241,19 @@ function timer() {
             }
         }
         else {
-            swal('Game Over','Time finished','error');
-            
-            location.reload();//Remplacer par un swal
+            clearInterval(interval);
+            $('.timer').removeClass('animated flash infinite');
+            swal({
+                title: 'Game Over',
+                text: 'Time finished',
+                type: 'error',
+                confirmButtonText : 'Try again!'
+            }).then((result) =>{
+                if (result.value) {
+                    location.reload();
+                }
+            }) ;
         }
-
-       
         
     },1000)
     
