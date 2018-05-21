@@ -223,11 +223,11 @@ function timer() {
             second = timerGame % 60;
             (second < 10)? $('.timer').text(`Elabsed time 0${minute} : 0${second}`) :  $('.timer').text(`Elabsed time 0${minute} : ${second}`);
            
-            if (timerGame === 120) {
+            if (timerGame === 180) {
                 $('.timer').css('color','goldenrod');
             }
             
-            if (timerGame === 270) {
+            if (timerGame === 250) {
                 $('.timer').css('color','orange');
             }
             
