@@ -159,19 +159,21 @@ function checkMatched (){
                 positionId =[];
                 progression++
                 if (progression === 16) {
+                    setTimeout(() => {
+                        swal({
+                            title: 'Memory Game',
+                            text: "Congratulation! You win, You have "+ starsNum + " and you've finshed at " + timerGame + " Secondes",
+                            type: 'success',
+                            showCancelButton: false,
+                            confirmButtonText: 'Play again?',
+                            confirmButtonColor:'#50bbb5', //Set the same color as match card
+                          }).then((result) => {
+                            if (result.value) {
+                                location.reload();
+                            }
+                          })    
+                    }, 2000);
                     
-                    swal({
-                        title: 'Memory Game',
-                        text: "Congratulation! You win, You have "+ starsNum + " and you've finshed at " + timerGame + " Secondes",
-                        type: 'success',
-                        showCancelButton: false,
-                        confirmButtonText: 'Play again?',
-                        confirmButtonColor:'#50bbb5', //Set the same color as match card
-                      }).then((result) => {
-                        if (result.value) {
-                            location.reload();
-                        }
-                      })
                     
                 }    
             }
