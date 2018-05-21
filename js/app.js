@@ -35,6 +35,7 @@ const gameBoard = $('#section-deck');
 createList();
 gameBoard.append(createCards);
 
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -85,29 +86,32 @@ function incrementMoves() {
 }
 const openCardClasses = ['animated', 'flipInY', 'open','show'];
 
-for (const card of showMe) {
-    card.addEventListener('click', function (event) {
-        
-        if (!card.classList.contains('open')) {
-           
-            card.classList.add(...openCardClasses);
-            console.log(card.id);
-            positionId.push(card.id);
-            incrementMoves();
-            //start the timer after first move
-            if (count===1) {
-                timer();
+function playGame() {
+    for (const card of showMe) {
+        card.addEventListener('click', function (event) {
+            
+            if (!card.classList.contains('open')) {
+               
+                card.classList.add(...openCardClasses);
+                console.log(card.id);
+                positionId.push(card.id);
+                incrementMoves();
+                //start the timer after first move
+                if (count===1) {
+                    timer();
+                }
+                playSound();
+                match.push(card.childNodes);
+    
             }
-            playSound();
-            match.push(card.childNodes);
-
-        }
-        //call function to check if two opened cards matchs
-        checkMatched();
-
-    });
+            //call function to check if two opened cards matchs
+            checkMatched();
+    
+        });
+    }    
 }
 
+playGame();
 
 
 // create sound effects variables
