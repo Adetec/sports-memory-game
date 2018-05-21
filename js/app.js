@@ -159,10 +159,11 @@ function checkMatched (){
                 positionId =[];
                 progression++
                 if (progression === 16) {
+                    let pluralStars = (starsNum > 1)? "stars" : "star";
                     setTimeout(() => {
                         swal({
                             title: 'Memory Game',
-                            text: "Congratulation! You win, You have "+ starsNum + " and you've finshed at " + timerGame + " Secondes",
+                            text: "Congratulation! You win, You have "+ starsNum + " " + pluralStars + " and you've finshed at " + timerGame + " Secondes",
                             type: 'success',
                             showCancelButton: false,
                             confirmButtonText: 'Play again?',
