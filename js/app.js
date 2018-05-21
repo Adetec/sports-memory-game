@@ -225,6 +225,7 @@ function timer() {
            
             if (timerGame === 180) {
                 $('.timer').css('color','goldenrod');
+                localStorage.setItem('progression', progression);
             }
             
             if (timerGame === 250) {
@@ -302,9 +303,5 @@ function starsRating() {
 
 // local storage
 
-
-
-
-
-
-
+let getit = localStorage.getItem("progression", progression);
+console.log(getit)
