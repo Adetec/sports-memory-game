@@ -222,19 +222,18 @@ function timer() {
             minute = parseInt(timerGame / 60);
             second = timerGame % 60;
             (second < 10)? $('.timer').text(`Elabsed time 0${minute} : 0${second}`) :  $('.timer').text(`Elabsed time 0${minute} : ${second}`);
-            
            
             if (timerGame === 120) {
-                $('#seconds').css('color','goldenrod');
+                $('.timer').css('color','goldenrod');
             }
             
             if (timerGame === 270) {
-                $('#seconds').css('color','orange');
+                $('.timer').css('color','orange');
             }
             
             if (timerGame === 280) {
-                $('#seconds').css('color','red');
-                $('#seconds').addClass('animated flash infinite');
+                $('.timer').css('color','red');
+                $('.timer').addClass('animated flash infinite');
             }
 
             if (progression===16) {
