@@ -328,12 +328,12 @@ function txtPlural(num , txt) {
 }
 
 //create date function
-function dateStorage(year , month, day, hour, minute) {
+function dateStorage() {
     let today = new Date();
-    year = today.getFullYear();
-    month = today.getMonth();
-    day = today.getDate();
-    hour = today.getHours();
-    minute = today.getMinutes();
-    console.log(year, month, day, hour, minute);
+    let year = today.getFullYear();
+    let month = today.getMonth();
+    let day = today.getDate();
+    let hour = today.getHours();
+    let minute = today.getMinutes();
+    return `${year}/${month}/${day} - ${hour}:${minute}`;
 }
