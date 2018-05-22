@@ -335,6 +335,5 @@ function dateStorage(year , month, day, hour, minute) {
     day = today.getDate();
     hour = today.getHours();
     minute = today.getMinutes();
-    console.log(today.getTime());
     console.log(year, month, day, hour, minute);
 }
