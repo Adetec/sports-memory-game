@@ -310,5 +310,27 @@ function starsRating() {
 
 // local storage
 
-let getit = localStorage.getItem("progression", progression);
-console.log(getit)
+let data = {
+    "stars" : [],
+    "seconds" : []
+};
+
+let getStars =JSON.parse(localStorage.getItem('stars', data.stars));
+let getSeconds = JSON.parse(localStorage.getItem('seconds', data.seconds));
+console.log('get stars: '+ getStars);
+console.log('get seconds: '+ getSeconds);
+data.stars.push(getStars);
+data.seconds.push(getSeconds);
+
+// get data
+
+function storageGame(st, sec) {
+    
+    data.stars.push(st);
+    data.seconds.push(sec);
+    
+    localStorage.setItem('stars', JSON.stringify(data.stars));
+    localStorage.setItem('seconds', JSON.stringify(data.seconds));
+    let getit = localStorage.seconds + ", " + localStorage.stars;
+    console.log('Storage: '+getit);    
+}
