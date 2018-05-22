@@ -164,10 +164,14 @@ function checkMatched (){
                 progression++
                 if (progression === 16) {
                     let pluralStars = (starsNum > 1)? "stars" : "star";
+                    storageGame(starsNum, timerGame);
+                    let swalStar = data.stars[data.stars.length-1];
+                    let swalSeconds = data.seconds[data.seconds.length-1];
+                
                     setTimeout(() => {
                         swal({
                             title: 'Memory Game',
-                            text: "Congratulation! You win, You have "+ starsNum + " " + pluralStars + " and you've finshed at " + timerGame + " Secondes",
+                            text: "Congratulation! You win, You have "+ swalStar + " " + pluralStars + " and you've finshed at " + swalSeconds + " Secondes",
                             type: 'success',
                             showCancelButton: false,
                             confirmButtonText: 'Play again?',
@@ -309,18 +313,25 @@ function starsRating() {
 
 
 // local storage
-
+//let date = new Date();
 let data = {
     "stars" : [],
-    "seconds" : []
+    "seconds" : [],
+    "date" : Date()
 };
 
 let getStars =JSON.parse(localStorage.getItem('stars', data.stars));
 let getSeconds = JSON.parse(localStorage.getItem('seconds', data.seconds));
 console.log('get stars: '+ getStars);
 console.log('get seconds: '+ getSeconds);
-data.stars.push(getStars);
-data.seconds.push(getSeconds);
+
+if ((getStars === null) && (getSeconds === null)) {
+    data.stars.concat(getStars);
+    data.seconds.concat(getSeconds);   
+} else {
+    data.stars = getStars;
+    data.seconds = getSeconds;
+}
 
 // get data
 
