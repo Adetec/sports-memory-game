@@ -171,7 +171,7 @@ function checkMatched (){
                     setTimeout(() => {
                         swal({
                             title: 'Memory Game',
-                            text: "Congratulation! You win, You have "+ swalStar + " " + pluralStars + " and you've finshed at " + swalSeconds + " Secondes",
+                            text: "Congratulation! You win, You have "+ swalStar + " " + pluralStars + " and you've finshed at " + timeFormat(swalSeconds) + " Secondes",
                             type: 'success',
                             showCancelButton: false,
                             confirmButtonText: 'Play again?',
@@ -230,10 +230,10 @@ function timer() {
         timerGame++;
 
         if (timerGame<=300) {
-            minute = parseInt(timerGame / 60);
-            second = timerGame % 60;
-            (second < 10)? $('.timer').text(`Elabsed time 0${minute} : 0${second}`) :  $('.timer').text(`Elabsed time 0${minute} : ${second}`);
-           
+            // minute = parseInt(timerGame / 60);
+            // second = timerGame % 60;
+            // (second < 10)? $('.timer').text(`Elabsed time 0${minute} : 0${second}`) :  $('.timer').text(`Elabsed time 0${minute} : ${second}`);
+            $('.timer').text(timeFormat(timerGame));
             if (timerGame === 180) {
                 $('.timer').css('color','goldenrod');
                 localStorage.setItem('progression', progression);
@@ -344,4 +344,13 @@ function storageGame(st, sec) {
     localStorage.setItem('seconds', JSON.stringify(data.seconds));
     let getit = localStorage.seconds + ", " + localStorage.stars;
     console.log('Storage: '+getit);    
+}
+
+
+
+function timeFormat(gameSecond) {
+    let minutes = `0${parseInt(gameSecond / 60)}`;
+    let seconds = gameSecond % 60;
+    (seconds < 10)? seconds = `0${seconds}`: seconds;
+    return minutes + ":" + seconds;
 }
