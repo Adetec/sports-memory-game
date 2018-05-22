@@ -284,21 +284,25 @@ function starsRating() {
 let data = {
     "stars" : [],
     "seconds" : [],
-    "date" : Date()
+    "gameDate" : []
 };
 // get data from local storage
 function getDataStorage() {
     let getStars =JSON.parse(localStorage.getItem('stars', data.stars));
     let getSeconds = JSON.parse(localStorage.getItem('seconds', data.seconds));
+    let getDataDate = JSON.parse(localStorage.getItem('date', data.gameDate));
     console.log('get stars: '+ getStars);
     console.log('get seconds: '+ getSeconds);
+    console.log('get seconds: '+ getDataDate);
     
-    if ((getStars === null) && (getSeconds === null)) {
+    if ((getStars === null) && (getSeconds === null) && (getDataDate === null)) {
         data.stars.concat(getStars);
         data.seconds.concat(getSeconds);
+        data.gameDate.concat(getDataDate);
     } else {
         data.stars = getStars;
         data.seconds = getSeconds;
+        data.gameDate = getDataDate;
     }    
 }
 
@@ -307,10 +311,12 @@ function storageGame(st, sec) {
 
     data.stars.push(st);
     data.seconds.push(sec);
+    data.gameDate.push(dateStorage());
 
     localStorage.setItem('stars', JSON.stringify(data.stars));
     localStorage.setItem('seconds', JSON.stringify(data.seconds));
-    let getit = localStorage.seconds + ", " + localStorage.stars;
+    localStorage.setItem('date', JSON.stringify(data.gameDate));
+    let getit = localStorage.seconds + ", " + localStorage.stars + ", " + localStorage.gameDate;
     console.log('Storage: '+getit);
 }
 getDataStorage();
