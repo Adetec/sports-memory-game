@@ -354,3 +354,8 @@ function timeFormat(gameSecond) {
     (seconds < 10)? seconds = `0${seconds}`: seconds;
     return minutes + ":" + seconds;
 }
+
+function txtPlural(num , txt) {
+    let txtPlural = (num > 1)? `${txt}s` : txt;
+    return txtPlural;
+}
