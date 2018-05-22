@@ -78,8 +78,8 @@ function incrementMoves() {
     textMoves.textContent = moves;
     // check stars rating
     starsRating();
-
 }
+
 const openCardClasses = ['animated', 'flipInY', 'open','show'];
 
 function playGame() {
@@ -208,7 +208,6 @@ function timer() {
 
             if (timerGame === 180) {
                 $('.timer').css('color','goldenrod');
-                localStorage.setItem('progression', progression);
             }
 
             if (timerGame === 250) {
@@ -287,22 +286,23 @@ let data = {
     "seconds" : [],
     "date" : Date()
 };
-
-let getStars =JSON.parse(localStorage.getItem('stars', data.stars));
-let getSeconds = JSON.parse(localStorage.getItem('seconds', data.seconds));
-console.log('get stars: '+ getStars);
-console.log('get seconds: '+ getSeconds);
-
-if ((getStars === null) && (getSeconds === null)) {
-    data.stars.concat(getStars);
-    data.seconds.concat(getSeconds);
-} else {
-    data.stars = getStars;
-    data.seconds = getSeconds;
+// get data from local storage
+function getDataStorage() {
+    let getStars =JSON.parse(localStorage.getItem('stars', data.stars));
+    let getSeconds = JSON.parse(localStorage.getItem('seconds', data.seconds));
+    console.log('get stars: '+ getStars);
+    console.log('get seconds: '+ getSeconds);
+    
+    if ((getStars === null) && (getSeconds === null)) {
+        data.stars.concat(getStars);
+        data.seconds.concat(getSeconds);
+    } else {
+        data.stars = getStars;
+        data.seconds = getSeconds;
+    }    
 }
 
-// get data
-
+// set data to local storage
 function storageGame(st, sec) {
 
     data.stars.push(st);
@@ -313,7 +313,7 @@ function storageGame(st, sec) {
     let getit = localStorage.seconds + ", " + localStorage.stars;
     console.log('Storage: '+getit);
 }
-
+getDataStorage();
 // Create timeFormat function that convert seconds to minutes and seconds format (00 : 00)
 function timeFormat(gameSecond) {
     let minutes = `0${parseInt(gameSecond / 60)}`;
