@@ -326,3 +326,15 @@ function txtPlural(num , txt) {
     let txtPlural = (num > 1)? `${txt}s` : txt;
     return txtPlural;
 }
+
+//create date function
+function dateStorage(year , month, day, hour, minute) {
+    let today = new Date();
+    year = today.getFullYear();
+    month = today.getMonth();
+    day = today.getDate();
+    hour = today.getHours();
+    minute = today.getMinutes();
+    console.log(today.getTime());
+    console.log(year, month, day, hour, minute);
+}
