@@ -25,16 +25,12 @@ function createList() {
         symbolId++;
         createCards.innerHTML += listCard;
         console.log(symbolId+listCard);
-        // createCards = createCards.appendChild(createList);       
     }
-    
 }
-
 
 const gameBoard = $('#section-deck');
 createList();
 gameBoard.append(createCards);
-
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -77,7 +73,7 @@ let positionId= [];
 function incrementMoves() {
     count++
     countMoves.textContent = count;
-    moves = (count <2)? ' Move':' Moves';
+    moves = (count < 2 )? ' Move':' Moves';
     console.log(moves);
     textMoves.textContent = moves;
     // check stars rating
@@ -89,9 +85,9 @@ const openCardClasses = ['animated', 'flipInY', 'open','show'];
 function playGame() {
     for (const card of showMe) {
         card.addEventListener('click', function (event) {
-            
+
             if (!card.classList.contains('open')) {
-               
+
                 card.classList.add(...openCardClasses);
                 console.log(card.id);
                 positionId.push(card.id);
@@ -102,13 +98,13 @@ function playGame() {
                 }
                 playSound();
                 match.push(card.childNodes);
-    
+
             }
             //call function to check if two opened cards matchs
             checkMatched();
-    
+
         });
-    }    
+    }
 }
 
 playGame();
@@ -122,21 +118,8 @@ function playSound() {
     flipSound.play();
 }
 
-//$('.card').click(flipCard);
-
-// /* let flipCard = */function playSound() {
-//     var sound = document.getElementById("flip-card");
-//     sound.play();
-// }
-
-// //$('.card').click(flipCard);
-
-
-
-
 
 //Check if two opened cards matchs
-
 let match = [];
 let progression = 0;
 
@@ -148,14 +131,14 @@ function checkMatched (){
             for (const id of positionId) {
                 let matched = document.querySelector(`#${id}`);
                 console.log('matched');
-                
+
                 setTimeout(() => {
                     matched.classList.add('match')
                     matched.classList.replace('flipInY', 'rubberBand');
                     console.log('one');
                     setTimeout(() => {
                         matched.classList.remove('flipInY',);
-                        
+
                     }, 1000);
                     console.log('two');
                 }, 1000);
@@ -163,11 +146,11 @@ function checkMatched (){
                 positionId =[];
                 progression++
                 if (progression === 16) {
-                    //let pluralStars = (starsNum > 1)? "stars" : "star";
+
                     storageGame(starsNum, timerGame);
                     let swalStar = data.stars[data.stars.length-1];
                     let swalSeconds = data.seconds[data.seconds.length-1];
-                
+
                     setTimeout(() => {
                         swal({
                             title: 'Memory Game',
@@ -180,13 +163,12 @@ function checkMatched (){
                             if (result.value) {
                                 location.reload();
                             }
-                          })    
+                          })
                     }, 2000);
                     
-                    
-                }    
+                }
             }
-            
+
         }
         else{
             console.log('Not matched');
@@ -205,44 +187,34 @@ function checkMatched (){
                         setTimeout(() => {
                             notMatched.classList.remove('flipInY');
                         }, 1000);
-                        
+
                     }, 1500);
                     console.log('wrong 2');
-                    
-                                     
+
                 }, 1000);
-               
             }
-            
         }
     }
 }
 
 //Function timer
 let timerGame = 0;
-let second, minute ;
+let second, minute;
 function timer() {
     let interval = setInterval (()=>{
-        // if (second <=9) {
-        //     second = "0"+second;
-        // }
-
         timerGame++;
-
         if (timerGame<=300) {
-            // minute = parseInt(timerGame / 60);
-            // second = timerGame % 60;
-            // (second < 10)? $('.timer').text(`Elabsed time 0${minute} : 0${second}`) :  $('.timer').text(`Elabsed time 0${minute} : ${second}`);
             $('.timer').text(timeFormat(timerGame));
+
             if (timerGame === 180) {
                 $('.timer').css('color','goldenrod');
                 localStorage.setItem('progression', progression);
             }
-            
+
             if (timerGame === 250) {
                 $('.timer').css('color','orange');
             }
-            
+
             if (timerGame === 280) {
                 $('.timer').css('color','red');
                 $('.timer').addClass('animated flash infinite');
@@ -264,17 +236,17 @@ function timer() {
                 if (result.value) {
                     location.reload();
                 }
-            }) ;
+            });
         }
-        
-    },1000)
-    
+
+    },1000);
+
 }
 
 //Function that restart the game board, the timer, and the star rating
 
 function restart() {
-    
+
     swal({
         title: 'Restart Memory game',
         text: "Are you sure?",
@@ -289,31 +261,27 @@ function restart() {
         }
       })
 }
-
+// Create Star rating function
 let starsNum = 3;
 function starsRating() {
     if (count === 25) {
         $('.stars li:last').css('color','grey');
-        starsNum--
+        starsNum--;
     }
-    
+
     if (count === 40) {
         $('.stars li:odd').css('color','grey');
-        starsNum--
+        starsNum--;
     }
-    
+
     if (count === 50) {
         $('.stars li:first').css('color','grey');
-        starsNum--
+        starsNum--;
     }
-    
 }
 
-
-
-
 // local storage
-//let date = new Date();
+// create data storage object
 let data = {
     "stars" : [],
     "seconds" : [],
@@ -327,7 +295,7 @@ console.log('get seconds: '+ getSeconds);
 
 if ((getStars === null) && (getSeconds === null)) {
     data.stars.concat(getStars);
-    data.seconds.concat(getSeconds);   
+    data.seconds.concat(getSeconds);
 } else {
     data.stars = getStars;
     data.seconds = getSeconds;
@@ -336,18 +304,17 @@ if ((getStars === null) && (getSeconds === null)) {
 // get data
 
 function storageGame(st, sec) {
-    
+
     data.stars.push(st);
     data.seconds.push(sec);
-    
+
     localStorage.setItem('stars', JSON.stringify(data.stars));
     localStorage.setItem('seconds', JSON.stringify(data.seconds));
     let getit = localStorage.seconds + ", " + localStorage.stars;
-    console.log('Storage: '+getit);    
+    console.log('Storage: '+getit);
 }
 
-
-
+// Create timeFormat function that convert seconds to minutes and seconds format (00 : 00)
 function timeFormat(gameSecond) {
     let minutes = `0${parseInt(gameSecond / 60)}`;
     let seconds = gameSecond % 60;
