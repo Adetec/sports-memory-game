@@ -44,25 +44,29 @@
                 00:00
             </div>
 
-            <div id="restart" onclick="restart()">
+            <div id="restart" class="pointer" onclick="restart()">
                 <i class="fa fa-undo"></i>
                 <div class="shortcuts">
-                        press <kbd>R</kbd> to reload the game
+                    press <kbd>R</kbd> to reload the game
                 </div>
             </div>
-            <div id="settings">
+            <div id="audio" class="pointer">
                     <i class="fa fa-volume-up"></i>
+                    <!-- import audio files -->
+                    <audio id="flip-card">
+                        <source src="audio/flip-card-effect.ogg" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="shortcuts">
+                        press <kbd>M</kbd> Mute the sound effects
+                    </div>
             </div>
         </section>
 
-        <section id="section-deck">
+        <section id="section-deck" class="container">
 
         </section>
-        <!-- import audio files -->
-        <audio id="flip-card">
-            <source src="audio/flip-card-effect.ogg" type="audio/ogg">
-            Your browser does not support the audio element.
-        </audio>
+        
     </main>
 
     <footer class="container">

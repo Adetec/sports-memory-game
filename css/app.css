@@ -38,9 +38,9 @@ body {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    padding: 48px;
+    padding: 0 48px;
     max-width: 660px;
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
 }
 
 /*
@@ -48,8 +48,8 @@ body {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    width: 640px;
+    min-height: 660px;
     background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #8fbfc5 ); /*radial-gradient(farthest-corner at 60% 55%, #89c2b8 , #fff );*/
     padding: 32px;
     border-radius: 10px;
@@ -109,7 +109,6 @@ body {
 
 .score-panel .stars {
     padding: 0;
-    display: inline-block;
     margin: 0 5px 0 0;
     color: goldenrod;
 }
@@ -121,13 +120,15 @@ body {
 
 #restart {
     float: right;
+}
+
+.pointer {
     cursor: pointer;
 }
 
-#restart:hover .shortcuts{
+.pointer:hover .shortcuts{
     display: block;
 }
-
 
 /*Hide audio elements*/
 audio {
@@ -137,5 +138,6 @@ audio {
 .shortcuts {
     display: none;
     position: absolute;
-    font-size: 0.5em; 
+    font-size: 0.5em;
+    background: #ffffff;
 }
