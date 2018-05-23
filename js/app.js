@@ -309,11 +309,12 @@ function getDataStorage() {
 
 // set data to local storage
 function storageGame(st, sec) {
-
+    // add new values to the data object
     data.stars.push(st);
     data.seconds.push(sec);
     data.gameDate.push(dateStorage());
 
+    // add new values from data storage object to local storage
     localStorage.setItem('stars', JSON.stringify(data.stars));
     localStorage.setItem('seconds', JSON.stringify(data.seconds));
     localStorage.setItem('date', JSON.stringify(data.gameDate));
