@@ -160,6 +160,7 @@ function checkMatched (){
                             showCancelButton: false,
                             confirmButtonText: 'Play again?',
                             confirmButtonColor:'#50bbb5', //Set the same color as match card
+                            footer: '<div><span>click here</span> or presse <kbd>S</kbd> to show scores.</div>'
                           }).then((result) => {
                             if (result.value) {
                                 location.reload();
@@ -349,11 +350,16 @@ function dateStorage() {
 //create reload keyboard shortcuts
 document.addEventListener('keyup', event => {
     let r = event.which;
+    // If R key is pressed, restart game
     if (r == 82) {
         console.log(r);
         restart();
     }
-    else {
-        console.log('oookkkhhh');
+    // If R key is pressed, display score game board
+    if (progression === 16) {
+        if (r == 83) {
+            console.log(r);
+            console.log('score board');//show score board
+        }   
     }
 });
