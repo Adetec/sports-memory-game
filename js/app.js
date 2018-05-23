@@ -346,4 +346,14 @@ function dateStorage() {
     return `${year}/${month}/${day} - ${hour}:${minute}`;
 }
 
-//create keyboard shortcuts
+//create reload keyboard shortcuts
+document.addEventListener('keyup', event => {
+    let r = event.which;
+    if (r == 82) {
+        console.log(r);
+        restart();
+    }
+    else {
+        console.log('oookkkhhh');
+    }
+});
