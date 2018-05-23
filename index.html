@@ -22,11 +22,11 @@
     <script src="https://unpkg.com/promise-polyfill"></script>
 </head>
 <body>
-
-    <div class="container">
-        <header class="text-center">
+        <header class="container text-center">
             <h1>SPORTS MEMORY GAME</h1>
         </header>
+    
+    <main class="container">
 
         <section id="game-board" class="score-panel">
         	<ul class="stars">
@@ -35,31 +35,36 @@
         		<li><i class="fa fa-star"></i></li>
             </ul>
             
-            <div class="timer">
-        	</div>
-
             <div >
-                <span id="moves"></span>
+                <span id="moves">0</span>
                 <span id="text-moves">Move</span>
             </div>
 
-            <div id="restart" onclick="restart()">
-        		<i class="fa fa-repeat"></i>
+            <div class="timer">
+                00:00
             </div>
-            <div id="settings">
-        		<i class="fa fa-volume-up"></i>
-        	</div>
+
+            <div id="restart" onclick="restart()">
+        		<i class="fa fa-undo"></i>
+            </div>
         </section>
 
         <section id="section-deck">
 
         </section>
-    </div>
-    <!-- import audio files -->
-    <audio id="flip-card">
-        <source src="audio/flip-card-effect.ogg" type="audio/ogg">
-        Your browser does not support the audio element.
-    </audio>
+        <!-- import audio files -->
+        <audio id="flip-card">
+            <source src="audio/flip-card-effect.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+    </main>
+
+    <footer class="container">
+        <div class="sortcuts">
+            press <code>R</code> to reload the game
+        </div>
+    </footer>
+    
 
     <script src="js/app.js"></script>
 </body>

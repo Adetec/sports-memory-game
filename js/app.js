@@ -345,3 +345,5 @@ function dateStorage() {
     let minute = today.getMinutes();
     return `${year}/${month}/${day} - ${hour}:${minute}`;
 }
+
+//create keyboard shortcuts
