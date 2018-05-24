@@ -349,22 +349,6 @@ function dateStorage() {
 
 
 
-//create reload keyboard shortcuts
-document.addEventListener('keyup', event => {
-    let r = event.which;
-    // If R key is pressed, restart game
-    if (r == 82) {
-        console.log(r);
-        restart();
-    }
-    // If R key is pressed, display score game board
-    if (progression === 16) {
-        if (r == 83) {
-            console.log(r);
-            console.log('score board');//show score board
-        }   
-    }
-});
 
 //Toggle ON/OFF sound effect when audio button is clicked 
 let audioButton = document.getElementById('audio');
@@ -385,3 +369,30 @@ function toggleAudioOnOff() {
     }
     console.log(flipSound.volume);
 }
+
+
+
+//Score board
+
+let scoreBoard = $('#score-board');
+
+
+
+
+
+//create reload keyboard shortcuts
+document.addEventListener('keyup', event => {
+    let r = event.which;
+    // If R key is pressed, restart game
+    if (r == 82) {
+        console.log(r);
+        restart();
+    }
+    // If S key is pressed, display score game board
+    if (r == 83) {
+        scoreBoard.toggle();
+        console.log(r);
+        console.log('score board');//show score board
+    }   
+
+});
