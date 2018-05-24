@@ -264,17 +264,17 @@ function restart() {
 // Create Star rating function
 let starsNum = 3;
 function starsRating() {
-    if (count === 25) {
+    if (count === 50) {
         $('.stars li:last').css('color','grey');
         starsNum--;
     }
 
-    if (count === 40) {
+    if (count === 60) {
         $('.stars li:odd').css('color','grey');
         starsNum--;
     }
 
-    if (count === 50) {
+    if (count === 100) {
         $('.stars li:first').css('color','grey');
         starsNum--;
     }
