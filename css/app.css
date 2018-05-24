@@ -34,6 +34,10 @@ h1 {
     text-shadow: 4px 4px 13px #67969c;
 }
 
+h1, #game-board {
+    margin: 9px auto;
+}
+
 /* 
  * Styeles for game board 
  */
@@ -41,7 +45,6 @@ h1 {
 #game-board {
     display: flex;
     justify-content: space-between;
-    margin: auto;
     padding: 0 48px;
     width: 100%;
     max-width: 600px;
@@ -130,9 +133,7 @@ h1 {
     cursor: pointer;
 }
 
-.pointer:hover .shortcuts{
-    display: block;
-}
+
 
 /*Hide audio elements*/
 audio {
@@ -146,6 +147,7 @@ audio {
     border: 1px solid #8fbfc5;
     border-radius: 5px;
     padding: 3px;
+    font-size: 16px;
 }
 
 kbd {
@@ -156,11 +158,11 @@ kbd {
     display: none;
     position: fixed;
     width: 50%;
-    background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #8fbfc5 );
+    background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #c6d5d9 );
     margin: auto;
     border-radius: 12px;
-    border: 5px solid goldenrod;
-    box-shadow: 5px 2px 20px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid goldenrod;
+    /* box-shadow: 5px 2px 20px 0 rgba(255, 255, 255, 0.5); */
 }
 
 #score-board li{
@@ -168,9 +170,16 @@ kbd {
     justify-items: center;
 }
 
+@media screen and (min-width: 769px) {
+    .pointer:hover .shortcuts{
+        display: block;
+    }
+}
+
 @media screen and (max-width: 450px) {
     h1 {
         font-size: 1.5em;
+        margin-top: 18px;
     }
 
     #game-board {
@@ -191,7 +200,8 @@ kbd {
 
 @media screen and (min-width: 451px) and (max-width: 768px) {
     h1 {
-        margin: 323x auto;
+        margin: 48px auto;
+        font: 2.5em;
     }
 
     #game-board {
