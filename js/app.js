@@ -347,6 +347,9 @@ function dateStorage() {
     return `${year}/${month}/${day} - ${hour}:${minute}`;
 }
 
+
+
+
 //create reload keyboard shortcuts
 document.addEventListener('keyup', event => {
     let r = event.which;
@@ -364,8 +367,14 @@ document.addEventListener('keyup', event => {
     }
 });
 
+//Toggle ON/OFF sound effect when audio button is clicked 
+let audioButton = document.getElementById('audio');
+audioButton.addEventListener('click', audio => {
+    toggleAudioOnOff();
+});
 
 // create function that set audio On or Off
 function toggleAudioOnOff() {
     (flipSound.volume === 1)? flipSound.volume = 0 : flipSound.volume = 1;
+    console.log(flipSound.volume)
 }
