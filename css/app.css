@@ -53,7 +53,7 @@ header {
     width: 600px;
     min-height: 620px;
     background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #8fbfc5 ); /*radial-gradient(farthest-corner at 60% 55%, #89c2b8 , #fff );*/
-    padding: 24px;
+    padding: 28px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
@@ -185,4 +185,17 @@ kbd {
         width: 60px;
         height: 60px;
     }
+}
+
+@media screen and (min-width: 451px) and (max-width: 768px) {
+    h1 {
+        margin: 323x auto;
+    }
+
+    #game-board {
+        margin: 10px auto;
+        font-size: 1.5em;
+    }
+
+    
 }
