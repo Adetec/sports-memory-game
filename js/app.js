@@ -160,7 +160,6 @@ function checkMatched (){
                             showCancelButton: false,
                             confirmButtonText: 'Play again?',
                             confirmButtonColor:'#50bbb5', //Set the same color as match card
-                            footer: '<div><span>click here</span> or presse <kbd>S</kbd> to show scores.</div>'
                           }).then((result) => {
                             if (result.value) {
                                 location.reload();
