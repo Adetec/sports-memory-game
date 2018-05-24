@@ -19,6 +19,7 @@ body {
 body {
     background: radial-gradient(farthest-side at 40% 13%, rgba(228, 228, 228, 0.2) , rgba(197, 204, 204, 0.2) ), url(../img/Sports.png) fixed; /* Background pattern from Subtle Patterns */
     font-family: 'Baloo Chettan', cursive;
+    color: #2a3552;
 }
 
 .container {
@@ -28,8 +29,9 @@ body {
     flex-direction: column;
 }
 
-header {
+h1 {
     text-align: center;
+    text-shadow: 4px 4px 13px #67969c;
 }
 
 /* 
