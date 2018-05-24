@@ -21,14 +21,16 @@ body {
     font-family: 'Baloo Chettan', cursive;
 }
 
-/* .container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-} */
+}
 
-
+header {
+    text-align: center;
+}
 
 /* 
  * Styeles for game board 
@@ -39,8 +41,8 @@ body {
     justify-content: space-between;
     margin: auto;
     padding: 0 48px;
-    max-width: 660px;
-    /* font-size: 1.5em; */
+    width: 100%;
+    max-width: 600px;
 }
 
 /*
@@ -48,10 +50,10 @@ body {
  */
 
 .deck {
-    width: 640px;
-    min-height: 660px;
+    width: 600px;
+    min-height: 600px;
     background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #8fbfc5 ); /*radial-gradient(farthest-corner at 60% 55%, #89c2b8 , #fff );*/
-    padding: 32px;
+    padding: 18px 24px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
@@ -68,7 +70,7 @@ body {
     background: url(../img/filet.png) #2a3552; /*credit: https://www.casalsport.com/img/W/CAS/ST/FB/20/16/FB2016/FB2016_ST.jpg*/
     background-size: cover;
     font-size: 0;
-    color: #ffffff;
+    color: #fff;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
@@ -138,6 +140,25 @@ audio {
 .shortcuts {
     display: none;
     position: absolute;
-    font-size: 0.5em;
-    background: #ffffff;
+    background: #fff;
+    border: 1px solid #8fbfc5;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+kbd {
+    font-size: 1.3em;
+}
+
+@media screen and (max-width: 450px) {
+    .deck {
+        width: 330px;
+        min-height: 330px;
+        padding: 18px 24px;
+    }
+
+    .deck .card {
+        width: 60px;
+        height: 60px;
+    }
 }
