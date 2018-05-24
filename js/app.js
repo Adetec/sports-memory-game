@@ -113,8 +113,8 @@ playGame();
 // create sound effects variables
 
 //Wrong Answer sound (credit: https://freesound.org/people/Bertrof/sounds/131657/)
+let flipSound = document.getElementById("flip-card");
 function playSound() {
-    var flipSound = document.getElementById("flip-card");
     flipSound.play();
 }
 
@@ -363,3 +363,9 @@ document.addEventListener('keyup', event => {
         }   
     }
 });
+
+
+// create function that set audio On or Off
+function toggleAudioOnOff() {
+    (flipSound.volume === 1)? flipSound.volume = 0 : flipSound.volume = 1;
+}
