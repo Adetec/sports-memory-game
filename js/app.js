@@ -375,6 +375,14 @@ audioButton.addEventListener('click', audio => {
 
 // create function that set audio On or Off
 function toggleAudioOnOff() {
-    (flipSound.volume === 1)? flipSound.volume = 0 : flipSound.volume = 1;
-    console.log(flipSound.volume)
+    let vol = (flipSound.volume === 1)? flipSound.volume = 0 : flipSound.volume = 1;
+    let audioIcon = document.getElementById('volume');
+    console.log(audioIcon.classList);
+    if (vol === 1) {
+        audioIcon.classList.replace('fa-volume-off', 'fa-volume-up');
+    }
+    else {
+        audioIcon.classList.replace('fa-volume-up', 'fa-volume-off');
+    }
+    console.log(flipSound.volume);
 }
