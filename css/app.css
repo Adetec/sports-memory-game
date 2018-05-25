@@ -209,6 +209,7 @@ kbd {
     }
     #score-board {
         width: 75%;
+        max-height: 160px;
     }
     .score-body {
         width: 90%;
