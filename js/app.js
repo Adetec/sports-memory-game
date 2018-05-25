@@ -4,6 +4,7 @@
  * Create a list that holds all of your cards
  */
 
+// create array that store list of fontAwesome icon classes
 let symbols = ['football-ball','football-ball','volleyball-ball','volleyball-ball','quidditch','quidditch','futbol','futbol','table-tennis','table-tennis','hockey-puck','hockey-puck','baseball-ball','baseball-ball','basketball-ball','basketball-ball'];
 
 
@@ -14,23 +15,8 @@ let symbols = ['football-ball','football-ball','volleyball-ball','volleyball-bal
  *   - add each card's HTML to the page
  */
 
-symbols = shuffle(symbols);
-let createCards = document.createElement('ul');
-createCards.setAttribute('class','deck');
-function createList() {
-    let listCard = '';
-    let symbolId = 0;
-    for (const symbol of symbols) {
-        listCard = `<li id="symbol-${symbolId}" class='card'><i class='fa fa-${symbol}'></i></li>`;
-        symbolId++;
-        createCards.innerHTML += listCard;
-        console.log(symbolId+listCard);
-    }
-}
-
-const gameBoard = $('#section-deck');
-createList();
-gameBoard.append(createCards);
+// Random the icons list
+ symbols = shuffle(symbols);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -46,6 +32,35 @@ function shuffle(array) {
 
     return array;
 }
+
+// Create an ul element
+let createCards = document.createElement('ul');
+
+//TODO: Add deck class to the ul elemnt
+createCards.setAttribute('class','deck');
+
+// create function that loop through each card and create its HTML
+function createList() {
+    let listCard = '';
+    let symbolId = 1; //Create an Id number to assign it for each id card
+    
+    //loop through each card and create its HTML
+    for (const symbol of symbols) {
+        listCard = `<li id="symbol-${symbolId}" class='card'><i class='fa fa-${symbol}'></i></li>`;
+        symbolId++; //Increment symbol id
+        createCards.innerHTML += listCard; //Put the child (li) to its parent (ul)
+    }
+}
+
+// Get the section deck element from index.html
+const sectionDeck = $('#section-deck');
+
+// Call createList function to initiate the cards DOM
+createList();
+
+// Insert html cards into section deck element
+sectionDeck.append(createCards);
+
 
 
 /*
@@ -63,25 +78,27 @@ function shuffle(array) {
 
 //Declarer des variables necessaires
 
-let showMe = document.querySelectorAll('.card');
-const countMoves = document.querySelector('#moves');
-const textMoves = document.querySelector('#text-moves');
+const showMe = document.querySelectorAll('.card'); //Get list of cards elements
+const countMoves = document.querySelector('#moves'); //Get the Number of moves element
+const textMoves = document.querySelector('#text-moves'); //Get the text of moves element
+
+//TODO: Setup moves
 let moves = '';
 countMoves.textContent = 0;
 let count = 0;
-let positionId= [];
+
+// Create function that increment moves counter each time player open a card
 function incrementMoves() {
     count++
     countMoves.textContent = count;
-    moves = (count < 2 )? ' Move':' Moves';
-    console.log(moves);
-    textMoves.textContent = moves;
-    // check stars rating
-    starsRating();
+    moves = txtPlural(count, 'move'); // If count > 1 move will be moves (plural)
+    textMoves.textContent = moves; // insert moves text into its html
+    starsRating(); // check stars rating
 }
 
 const openCardClasses = ['animated', 'flipInY', 'open','show'];
 
+let positionId= [];
 function playGame() {
     for (const card of showMe) {
         card.addEventListener('click', function (event) {
@@ -396,8 +413,7 @@ function scoreData() {
         scoreUl.innerHTML =scoreContent;
         scoreBody.append(scoreUl);
         scoreBoard.append(scoreBody);
-    }
-    
+    }        
     
 }
 
@@ -418,9 +434,21 @@ document.addEventListener('keyup', event => {
     }
     // If S key is pressed, display score game board
     if (r == 83) {
-        scoreBoard.toggle();
-        console.log(r);
-        console.log('score board');//show score board
+        displayScoreBoard();
     }   
 
 });
+
+function displayScoreBoard() {
+    if (score.stars.length > 0) { // if there is 
+        scoreBoard.toggle();   
+    }
+    else {
+        swal(
+            'Sport Game Memory',
+            'You have to win at least one time to see your score log!',
+            'info'
+          )
+    }
+
+}
