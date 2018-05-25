@@ -435,7 +435,12 @@ document.addEventListener('keyup', event => {
     // If S key is pressed, display score game board
     if (k == 83) {
         displayScoreBoard();
-    }   
+    }
+
+    // If V key is pressed, toggle Audio volume to ON/OFF
+    if (k == 86) {
+        toggleAudioOnOff();
+    }
 
 });
 

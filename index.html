@@ -27,10 +27,13 @@
     <main class="container">
 
         <section id="game-board" class="score-panel">
-        	<ul class="stars">
+        	<ul class="stars pointer">
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
+                <div class="shortcuts">
+                    press <kbd>S</kbd> to display score game board.
+                </div>
             </ul>
             
             <div >
@@ -45,7 +48,7 @@
             <div id="restart" class="pointer" onclick="restart()">
                 <i class="fa fa-undo"></i>
                 <div class="shortcuts">
-                    press <kbd>R</kbd> to reload the game
+                    press <kbd>R</kbd> to reload the game.
                 </div>
             </div>
             <div id="audio" class="pointer">
@@ -56,7 +59,7 @@
                         Your browser does not support the audio element.
                     </audio>
                     <div class="shortcuts">
-                        press <kbd>M</kbd> Mute the sound effects
+                        press <kbd>V</kbd> to On or Off the sound effects volume.
                     </div>
             </div>
         </section>
