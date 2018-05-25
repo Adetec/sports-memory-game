@@ -107,8 +107,9 @@ const openCardClasses = ['animated', 'flipInY', 'open','show'];
 //Create array to store the opened card Id
 let positionId= [];
 
-//create function that loop event when player click on a card
+//call function that loop event when player click on a card
 playGame();
+//Create function that loop event when player click on a card
 function playGame() {
 
     for (const card of showMe) {
@@ -139,17 +140,19 @@ function playGame() {
 
 
 // create sound effects variables
-let flipSound = document.getElementById("flip-card");
+let flipSound = document.getElementById("flip-card"); //get Flip card audio element
+
+//Create function that play the flip card sound effect
 function playSound() {
     flipSound.play();
 }
 
+//TODO: Check if two opened cards matchs
+let match = []; //Array that store two open matched card
+let progression = 0; // Initiate progession to 0
+let symbolCard = document.querySelectorAll('.open'); //Get opened cards elements
 
-//Check if two opened cards matchs
-let match = [];
-let progression = 0;
-
-let symbolCard = document.querySelectorAll('.open');
+//Create function that check if two opened cards matchs
 function checkMatched (){
     if (match.length === 2) {
         console.log(2);
