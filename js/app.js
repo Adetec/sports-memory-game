@@ -74,7 +74,6 @@ sectionDeck.append(createCards);
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
- // ********faut pas oublier de mentionner le changement de flipInY direction*********
 
 //Declarer des variables necessaires
 
@@ -96,10 +95,22 @@ function incrementMoves() {
     starsRating(); // check stars rating
 }
 
+// create liste of classes names
 const openCardClasses = ['animated', 'flipInY', 'open','show'];
+/*
+*I had to change flipInY animation class from [animate.css library file]
+* (take a look at line 2005 and 2038)
+* The change was invert rotation direction
+*/
 
+
+//Create array to store the opened card Id
 let positionId= [];
+
+//create function that loop event when player click on a card
+playGame();
 function playGame() {
+
     for (const card of showMe) {
         card.addEventListener('click', function (event) {
 
@@ -113,6 +124,7 @@ function playGame() {
                 if (count===1) {
                     timer();
                 }
+                //play flip sound effect
                 playSound();
                 match.push(card.childNodes);
 
@@ -124,12 +136,9 @@ function playGame() {
     }
 }
 
-playGame();
 
 
 // create sound effects variables
-
-//Wrong Answer sound (credit: https://freesound.org/people/Bertrof/sounds/131657/)
 let flipSound = document.getElementById("flip-card");
 function playSound() {
     flipSound.play();
