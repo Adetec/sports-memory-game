@@ -376,6 +376,34 @@ function toggleAudioOnOff() {
 
 let scoreBoard = $('#score-board');
 
+const score = {
+    stars : data.stars,
+    seconds : data.seconds,
+    gameDate :data.gameDate         
+}
+scoreData();
+function scoreData() {
+
+    let scoreContent = '';
+    for (let i = 0; i < score.stars.length; i++) {
+        let scoreBody = document.createElement('div');
+        scoreBody.setAttribute('class','score-body');
+        let scoreUl = document.createElement('ul');
+        
+
+        scoreContent = `<li>Date: ${score.gameDate[i]}</li><li>Time: ${timeFormat(score.seconds[i])}</li><li>Score: ${score.stars[i]} ${txtPlural(score.stars[i], 'star')}</li>`;
+        
+        scoreUl.innerHTML =scoreContent;
+        scoreBody.append(scoreUl);
+        scoreBoard.append(scoreBody);
+    }
+    
+    
+}
+
+
+
+
 
 
 

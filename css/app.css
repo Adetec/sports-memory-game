@@ -145,9 +145,9 @@ audio {
     position: absolute;
     background: #fff;
     border: 1px solid #8fbfc5;
-    border-radius: 5px;
-    padding: 3px;
-    font-size: 16px;
+    border-radius: 12px; /*same as ul score class*/
+    padding: 1px 10px;
+    font-size: 12px;
 }
 
 kbd {
@@ -157,17 +157,28 @@ kbd {
 #score-board {
     display: none;
     position: fixed;
-    width: 50%;
-    background: radial-gradient(farthest-side at 40% 13%, #e4e4e4 , #c6d5d9 );
+    width: 500px;
     margin: auto;
     border-radius: 12px;
-    border: 1px solid goldenrod;
+    background: radial-gradient(farthest-side at 40% 13%, #eff0f0 , #afb5ba );
+    max-height: 215px;
+    overflow: scroll;
     /* box-shadow: 5px 2px 20px 0 rgba(255, 255, 255, 0.5); */
 }
 
-#score-board li{
+#score-board ul{
     list-style: none;
-    justify-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    background: #fff; /*same as shorcuts class*/
+    border: 1px solid #8fbfc5; /*same as shorcuts class*/
+    border-radius: 25px;
+}
+
+.score-body {
+    width: 85%;
+    margin: 0 auto;    
 }
 
 @media screen and (min-width: 769px) {
@@ -195,6 +206,13 @@ kbd {
     .deck .card {
         width: 60px;
         height: 60px;
+    }
+    #score-board {
+        width: 75%;
+    }
+    .score-body {
+        width: 90%;
+        font-size: 10px;
     }
 }
 
