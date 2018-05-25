@@ -424,16 +424,16 @@ function scoreData() {
 
 
 
-//create reload keyboard shortcuts
+//create keyboard shortcuts event
 document.addEventListener('keyup', event => {
-    let r = event.which;
+    let k = event.which;
     // If R key is pressed, restart game
-    if (r == 82) {
-        console.log(r);
+    if (k == 82) {
+        console.log(k);
         restart();
     }
     // If S key is pressed, display score game board
-    if (r == 83) {
+    if (k == 83) {
         displayScoreBoard();
     }   
 
@@ -444,11 +444,12 @@ function displayScoreBoard() {
         scoreBoard.toggle();   
     }
     else {
-        swal(
-            'Sport Game Memory',
-            'You have to win at least one time to see your score log!',
-            'info'
-          )
+        swal({
+            title: 'Sport Game Memory',
+            text: 'You have to win at least one time to see your score log!',
+            type: 'info',
+            confirmButtonColor: '#50bbb5'
+        });
     }
 
 }
