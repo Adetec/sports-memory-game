@@ -399,8 +399,6 @@ function toggleAudioOnOff() {
     console.log(flipSound.volume);
 }
 
-
-
 //Score board
 
 let scoreBoard = $('#score-board');
@@ -429,13 +427,6 @@ function scoreData() {
     
 }
 
-
-
-
-
-
-
-
 //create keyboard shortcuts event
 document.addEventListener('keyup', event => {
     let k = event.which;
@@ -455,6 +446,12 @@ document.addEventListener('keyup', event => {
     }
 
 });
+
+// Display score board When player click on stars panel
+displayScore = document.querySelector('.stars');
+displayScore.addEventListener('click', event => {
+    displayScoreBoard();
+})
 
 function displayScoreBoard() {
     if (score.stars.length > 0) { // if there is 
