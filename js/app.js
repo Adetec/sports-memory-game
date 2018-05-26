@@ -448,7 +448,7 @@ document.addEventListener('keyup', event => {
 });
 
 // Display score board When player click on stars panel
-displayScore = document.querySelector('.stars');
+const displayScore = document.querySelector('.stars');
 displayScore.addEventListener('click', event => {
     displayScoreBoard();
 })
@@ -466,4 +466,14 @@ function displayScoreBoard() {
         });
     }
 
+}
+
+const close = document.querySelector('#close');
+close.addEventListener('click', event => {
+    closePanel(scoreBoard);
+})
+
+// create function that close window panel
+function closePanel(panel) {
+    return panel.css('display', 'none');
 }

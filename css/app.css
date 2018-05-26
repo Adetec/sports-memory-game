@@ -183,6 +183,14 @@ kbd {
     margin: 0 auto;    
 }
 
+#close {
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    color: #fff;
+    text-shadow: 1px 1px #2a3552;
+}
+
 @media screen and (min-width: 769px) {
     .pointer:hover .shortcuts{
         display: block;
@@ -218,9 +226,14 @@ kbd {
         width: 75%;
         max-height: 160px;
     }
+
     .score-body {
         width: 90%;
         font-size: 10px;
+    }
+
+    #close {
+        top: 0;
     }
 }
 
