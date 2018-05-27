@@ -191,6 +191,21 @@ kbd {
     text-shadow: 1px 1px #2a3552;
 }
 
+.bottom {
+    position: absolute;
+    bottom: 5px;
+    right: 2px;
+}
+
+#student {
+    font-size: 0.8em;
+    opacity: 0.2;
+}
+
+#love {
+    color: rgb(193, 4, 4);
+}
+
 @media screen and (min-width: 769px) {
     .pointer:hover .shortcuts{
         display: block;
