@@ -177,7 +177,7 @@ function checkMatched (){
                     setTimeout(() => {
                         swal({
                             title: 'Memory Game',
-                            text: "Congratulation! You win, You have "+ swalStar + " " + txtPlural(swalStar, 'star') + " and you've finshed at " + timeFormat(swalSeconds),
+                            text: `Congratulation! You win, You have ${swalStar} ${txtPlural(swalStar, 'star')} and you've finshed at ${timeFormat(swalSeconds)}`,
                             width: '70%',
                             type: 'success',
                             showCancelButton: false,
