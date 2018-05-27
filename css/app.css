@@ -9,7 +9,8 @@ html {
     box-sizing: inherit;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -31,7 +32,8 @@ h1 {
     text-shadow: 4px 4px 13px #67969c;
 }
 
-h1, #game-board {
+h1,
+#game-board {
     margin: 9px auto;
 }
 
@@ -178,7 +180,8 @@ kbd {
     border-radius: 25px;
 }
 
-.shortcuts, #score-board ul {
+.shortcuts,
+#score-board ul {
     background: #fff;
     border: 1px solid #8fbfc5;
 }
