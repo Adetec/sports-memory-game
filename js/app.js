@@ -5,7 +5,6 @@
 // create array that store list of fontAwesome icon classes
 let symbols = ['football-ball','football-ball','volleyball-ball','volleyball-ball','quidditch','quidditch','futbol','futbol','table-tennis','table-tennis','hockey-puck','hockey-puck','baseball-ball','baseball-ball','basketball-ball','basketball-ball'];
 
-
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -60,7 +59,6 @@ createList();
 sectionDeck.append(createCards);
 
 
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -71,7 +69,6 @@ sectionDeck.append(createCards);
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-
 
 //Declarer des variables necessaires
 
@@ -100,7 +97,6 @@ const openCardClasses = ['animated', 'flipInY', 'open','show'];
 * (take a look at line 2005 and 2038)
 * The change was invert rotation direction
 */
-
 
 //Create array to store the opened card Id
 let positionId= [];
@@ -133,8 +129,6 @@ function playGame() {
         });
     }
 }
-
-
 
 // create sound effects variables
 let flipSound = document.getElementById("flip-card"); //get Flip card audio element
@@ -389,9 +383,7 @@ function toggleAudioOnOff() {
 }
 
 //Score board
-
 let scoreBoard = $('#score-board'); //Get score-board html element
-
 // Create score object that stores data object elements values 
 const score = {
     stars : data.stars,
@@ -408,15 +400,14 @@ function scoreData() {
         let scoreBody = document.createElement('div');
         scoreBody.setAttribute('class','score-body');
         let scoreUl = document.createElement('ul');
-        
-
+        //Create text content for each data        
         scoreContent = `<li>Date: ${score.gameDate[i]}</li><li>Time: ${timeFormat(score.seconds[i])}</li><li>Score: ${score.stars[i]} ${txtPlural(score.stars[i], 'star')}</li>`;
-        
+        //Instert data to its HTml elements
         scoreUl.innerHTML =scoreContent;
         scoreBody.append(scoreUl);
         scoreBoard.append(scoreBody);
     }        
-    
+
 }
 
 //create keyboard shortcuts event
@@ -443,11 +434,11 @@ displayScore.addEventListener('click', event => {
 })
 
 function displayScoreBoard() {
-    if (score.stars.length > 0) { // if there is 
-        scoreBoard.toggle();   
+    if (score.stars.length > 0) { // If there is data in local storage
+        scoreBoard.toggle(); //Display score board popup message
     }
-    else {
-        swal({
+    else {  // If there is no data in local storage
+        swal({ // Display info popup using sweat alert framework
             title: 'Sport Game Memory',
             text: 'You have to win at least one time to see your score log!',
             type: 'info',
