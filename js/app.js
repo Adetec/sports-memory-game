@@ -40,7 +40,7 @@ createCards.setAttribute('class','deck');
 function createList() {
     let listCard = '';
     let symbolId = 1; //Create an Id number to assign it for each id card
-    
+
     //loop through each card and create its HTML
     for (const symbol of symbols) {
         listCard = `<li id="symbol-${symbolId}" class='card'><i class='fa fa-${symbol}'></i></li>`;
@@ -57,7 +57,6 @@ createList();
 
 // Insert html cards into section deck element
 sectionDeck.append(createCards);
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -151,7 +150,7 @@ function checkMatched (){
 
             for (const id of positionId) { //loop over the matched cards
                 let matched = document.querySelector(`#${id}`); //get the id of each card opened card
-                setTimeout(() => { 
+                setTimeout(() => {
                     matched.classList.add('match'); //Card will be green
                     matched.classList.replace('flipInY', 'rubberBand'); //animate correct guess & keep the matched card open
                 }, 1000);
@@ -182,7 +181,7 @@ function checkMatched (){
                             }
                           })
                     }, 2000);
-                    
+
                 }
             }
 
@@ -220,7 +219,7 @@ let second, minute;
 function timer() {
     let interval = setInterval (()=>{
         timerGame++; // increment timer value every 1 second
-        // Timer will stop after 5 minutes (300s) 
+        // Timer will stop after 5 minutes (300s)
         if (timerGame<=300) {
             $('.timer').text(timeFormat(timerGame)); //set text Timer element in (minutes:seconds)
 
@@ -323,7 +322,7 @@ function getDataStorage() {
         data.stars = getStars;
         data.seconds = getSeconds;
         data.gameDate = getDataDate;
-    }    
+    }
 }
 
 // Function that sets data to local storage
@@ -364,7 +363,7 @@ function dateStorage() {
     return `${year}/${month}/${day} - ${hour}:${minute}`; // returns string like (2018/4/26 - 11:57)
 }
 
-//Toggle ON/OFF sound effect when audio button is clicked 
+//Toggle ON/OFF sound effect when audio button is clicked
 let audioButton = document.getElementById('audio');
 audioButton.addEventListener('click', audio => {
     toggleAudioOnOff();
@@ -384,11 +383,11 @@ function toggleAudioOnOff() {
 
 //Score board
 let scoreBoard = $('#score-board'); //Get score-board html element
-// Create score object that stores data object elements values 
+// Create score object that stores data object elements values
 const score = {
     stars : data.stars,
     seconds : data.seconds,
-    gameDate :data.gameDate         
+    gameDate :data.gameDate
 }
 
 // Function that loops over score object values and create HTML element wich be appended into score bord HTML element
@@ -400,13 +399,13 @@ function scoreData() {
         let scoreBody = document.createElement('div');
         scoreBody.setAttribute('class','score-body');
         let scoreUl = document.createElement('ul');
-        //Create text content for each data        
+        //Create text content for each data
         scoreContent = `<li>Date: ${score.gameDate[i]}</li><li>Time: ${timeFormat(score.seconds[i])}</li><li>Score: ${score.stars[i]} ${txtPlural(score.stars[i], 'star')}</li>`;
         //Instert data to its HTml elements
         scoreUl.innerHTML =scoreContent;
         scoreBody.append(scoreUl);
         scoreBoard.append(scoreBody);
-    }        
+    }
 
 }
 
