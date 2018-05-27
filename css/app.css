@@ -64,11 +64,11 @@ h1,
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: auto;    
+    margin: auto;
 }
 
 /*
- * Styles for cards 
+ * Styles for cards
  */
 .deck .card {
     height: 115px;
@@ -188,7 +188,7 @@ kbd {
 
 .score-body {
     width: 85%;
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 
 #close {
