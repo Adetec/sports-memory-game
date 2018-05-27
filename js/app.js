@@ -149,37 +149,33 @@ function playSound() {
 
 //TODO: Check if two opened cards matchs
 let match = []; //Array that store two open matched card
-let progression = 0; // Initiate progession to 0
+let progression = 0; // Initiate number of matched card to 0
 let symbolCard = document.querySelectorAll('.open'); //Get opened cards elements
 
 //Create function that check if two opened cards matchs
 function checkMatched (){
-    if (match.length === 2) {
-        console.log(2);
-        if (match[0][0].classList[1]==match[1][0].classList[1]) {
-            for (const id of positionId) {
-                let matched = document.querySelector(`#${id}`);
-                console.log('matched');
+    if (match.length === 2) { //if two cards are opened
 
-                setTimeout(() => {
-                    matched.classList.add('match')
-                    matched.classList.replace('flipInY', 'rubberBand');
-                    console.log('one');
-                    setTimeout(() => {
-                        matched.classList.remove('flipInY',);
+        if (match[0][0].classList[1]==match[1][0].classList[1]) { //check if two cards matchs
 
-                    }, 1000);
-                    console.log('two');
+            for (const id of positionId) { //loop over the matched cards
+                let matched = document.querySelector(`#${id}`); //get the id of each card opened card
+                setTimeout(() => { 
+                    matched.classList.add('match'); //Card will be green
+                    matched.classList.replace('flipInY', 'rubberBand'); //animate correct guess & keep the matched card open
                 }, 1000);
-                match =[];
-                positionId =[];
-                progression++
-                if (progression === 16) {
+                match =[]; //Empty matched array for the next loop
+                positionId =[]; //Empty position id array for the next loop
+                progression++; // increment number of matched card
 
+                if (progression === 16) { //If all Cards are matched
+
+                    //save the current score into local storage data
                     storageGame(starsNum, timerGame);
+                    //get the last score from local storage
                     let swalStar = data.stars[data.stars.length-1];
                     let swalSeconds = data.seconds[data.seconds.length-1];
-
+                    //After 2 seconds display Success popup message using Sweet alert library
                     setTimeout(() => {
                         swal({
                             title: 'Memory Game',
@@ -188,10 +184,10 @@ function checkMatched (){
                             type: 'success',
                             showCancelButton: false,
                             confirmButtonText: 'Play again?',
-                            confirmButtonColor:'#50bbb5', //Set the same color as match card
+                            confirmButtonColor:'#50bbb5', //Set the same color as match card color background style
                           }).then((result) => {
                             if (result.value) {
-                                location.reload();
+                                location.reload(); //Reset the game
                             }
                           })
                     }, 2000);
@@ -200,26 +196,26 @@ function checkMatched (){
             }
 
         }
+        // But if the 2 cards don't match
         else{
-            console.log('Not matched');
             for (const id of positionId) {
                 let notMatched = document.querySelector(`#${id}`);
                 match =[];
                 positionId =[];
                 setTimeout(() => {
-                    notMatched.classList.add('not-match')
-                    notMatched.classList.replace('flipInY', 'wobble');
-                    console.log('wrong 1');
+                    notMatched.classList.add('not-match') //Card will be red
+                    notMatched.classList.replace('flipInY', 'wobble'); //animate wrong guess
+
                     setTimeout(() => {
+                        //turn the card back
                         notMatched.classList.remove('open','show', 'not-match');
                         notMatched.classList.add('flipInY');
                         notMatched.classList.remove('wobble');
                         setTimeout(() => {
-                            notMatched.classList.remove('flipInY');
+                            notMatched.classList.remove('flipInY');// remove flipped animation
                         }, 1000);
 
                     }, 1500);
-                    console.log('wrong 2');
 
                 }, 1000);
             }
@@ -228,34 +224,37 @@ function checkMatched (){
 }
 
 //Function timer
-let timerGame = 0;
+let timerGame = 0; //Initiate timer to 0
 let second, minute;
 function timer() {
     let interval = setInterval (()=>{
-        timerGame++;
+        timerGame++; // increment timer value every 1 second
+        // Timer will stop after 5 minutes (300s) 
         if (timerGame<=300) {
-            $('.timer').text(timeFormat(timerGame));
+            $('.timer').text(timeFormat(timerGame)); //set text Timer element in (minutes:seconds)
 
             if (timerGame === 180) {
-                $('.timer').css('color','goldenrod');
+                $('.timer').css('color','goldenrod'); //Change color at (03:00)
             }
 
             if (timerGame === 250) {
-                $('.timer').css('color','orange');
+                $('.timer').css('color','orange'); //Change color at (04:10)
             }
 
             if (timerGame === 280) {
-                $('.timer').css('color','red');
-                $('.timer').addClass('animated flash infinite');
+                $('.timer').css('color','red');  //Change color at (04:40)
+                $('.timer').addClass('animated flash infinite'); //time falshes in red
             }
 
             if (progression===16) {
-                clearInterval(interval);
+                clearInterval(interval); //Stop Timer wen all matched cards are displayed
             }
         }
+        // If time is over befor the end of the game
         else {
-            clearInterval(interval);
-            $('.timer').removeClass('animated flash infinite');
+            clearInterval(interval); //stop timer
+            $('.timer').removeClass('animated flash infinite'); // Remove timer animation
+            // Display game over popup message using Sweet alert library
             swal({
                 title: 'Game Over',
                 text: 'Time finished',
@@ -263,7 +262,7 @@ function timer() {
                 confirmButtonText : 'Try again!'
             }).then((result) =>{
                 if (result.value) {
-                    location.reload();
+                    location.reload(); //reset the game
                 }
             });
         }
