@@ -271,10 +271,9 @@ function timer() {
 
 }
 
-//Function that restart the game board, the timer, and the star rating
-
+//Function that reset the game board, the timer, and the star rating
 function restart() {
-
+    //Display popup message asking player if he want to restart the game, using Sweet alert library
     swal({
         title: 'Restart Memory game',
         text: "Are you sure?",
@@ -289,19 +288,21 @@ function restart() {
         }
       })
 }
+
 // Create Star rating function
 let starsNum = 3;
 function starsRating() {
+    // player will loose one star after 50 moves
     if (count === 50) {
         $('.stars li:last').css('color','grey');
-        starsNum--;
+        starsNum--; //Decrement number of stars
     }
-
+    // player will loose the second star after 60 moves
     if (count === 60) {
         $('.stars li:odd').css('color','grey');
         starsNum--;
     }
-
+    // player will loose the last star after 100 moves
     if (count === 100) {
         $('.stars li:first').css('color','grey');
         starsNum--;
@@ -313,22 +314,20 @@ function starsRating() {
 let data = {
     "stars" : [],
     "seconds" : [],
-    "gameDate" : []
+    "gameDate" : [] //Array that stores date and time from time system
 };
 // get data from local storage
 function getDataStorage() {
     let getStars =JSON.parse(localStorage.getItem('stars', data.stars));
     let getSeconds = JSON.parse(localStorage.getItem('seconds', data.seconds));
     let getDataDate = JSON.parse(localStorage.getItem('date', data.gameDate));
-    console.log('get stars: '+ getStars);
-    console.log('get seconds: '+ getSeconds);
-    console.log('get seconds: '+ getDataDate);
-    
+    // Check if locale storage data is empty
     if ((getStars === null) && (getSeconds === null) && (getDataDate === null)) {
+        // Store current game score
         data.stars.concat(getStars);
         data.seconds.concat(getSeconds);
         data.gameDate.concat(getDataDate);
-    } else {
+    } else { // if there is data assing it into data object
         data.stars = getStars;
         data.seconds = getSeconds;
         data.gameDate = getDataDate;
