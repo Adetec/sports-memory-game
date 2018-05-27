@@ -15,7 +15,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: radial-gradient(farthest-side at 40% 13%, rgba(228, 228, 228, 0.2) , rgba(197, 204, 204, 0.2) ), url(../img/Sports.png) fixed; /* Background pattern from Subtle Patterns */
+    background: radial-gradient(farthest-side at 40% 13%, rgba(228, 228, 228, 0.2) , rgba(197, 204, 204, 0.2) ), url(../img/Sports.png) fixed; /* Background pattern from Subtle Patterns: https://www.toptal.com/designers/subtlepatterns/sports/ */
     font-family: 'Baloo Chettan', cursive;
     color: #2a3552;
 }
