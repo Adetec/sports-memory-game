@@ -5,6 +5,7 @@
 * [Interface Design](#interface-design)
 * [Game rules](#game-rules)
 * [Additinal compenents](#additinal-compenents)
+* [Dependencies](#dependencies)
 * [Credits](#credits)
 
 ## Interface Design:
@@ -61,7 +62,7 @@ Timer changes color when it reaches:
 * Player can press `S` key to Display score history game baord.
 * Player can press `V` key to Toggle *ON/OFF* sound effect.
 
-## Dependecies:
+## Dependencies:
 1- [Jquery](https://jquery.com/)
 2- [Font Awesome](https://fontawesome.com)
 3- [Animate.css]()
