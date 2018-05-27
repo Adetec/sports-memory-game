@@ -116,7 +116,6 @@ function playGame() {
             if (!card.classList.contains('open')) {
 
                 card.classList.add(...openCardClasses);
-                console.log(card.id);
                 positionId.push(card.id);
                 incrementMoves();
                 //start the timer after first move
@@ -344,8 +343,6 @@ function storageGame(st, sec) {
     localStorage.setItem('stars', JSON.stringify(data.stars));
     localStorage.setItem('seconds', JSON.stringify(data.seconds));
     localStorage.setItem('date', JSON.stringify(data.gameDate));
-    let getit = localStorage.seconds + ", " + localStorage.stars + ", " + localStorage.gameDate;
-    console.log('Storage: '+getit);
 }
 
 // Create timeFormat function that converts seconds to minutes and seconds format (00 : 00)
@@ -383,7 +380,6 @@ audioButton.addEventListener('click', audio => {
 function toggleAudioOnOff() {
     let vol = (flipSound.volume === 1)? flipSound.volume = 0 : flipSound.volume = 1;
     let audioIcon = document.getElementById('volume');
-    console.log(audioIcon.classList);
     if (vol === 1) {
         audioIcon.classList.replace('fa-volume-off', 'fa-volume-up');
     }
@@ -428,19 +424,16 @@ document.addEventListener('keyup', event => {
     let k = event.which;
     // If R key is pressed, restart game
     if (k == 82) {
-        console.log(k);
         restart();
     }
     // If S key is pressed, display score game board
     if (k == 83) {
         displayScoreBoard();
     }
-
     // If V key is pressed, toggle Audio volume to ON/OFF
     if (k == 86) {
         toggleAudioOnOff();
     }
-
 });
 
 // Display score board When player click on stars panel
