@@ -1,5 +1,3 @@
-
-
 /*
  * Create a list that holds all of your cards
  */
@@ -317,6 +315,7 @@ let data = {
     "gameDate" : [] //Array that stores date and time from time system
 };
 // get data from local storage
+getDataStorage();
 function getDataStorage() {
     let getStars =JSON.parse(localStorage.getItem('stars', data.stars));
     let getSeconds = JSON.parse(localStorage.getItem('seconds', data.seconds));
@@ -334,7 +333,7 @@ function getDataStorage() {
     }    
 }
 
-// set data to local storage
+// Function that sets data to local storage
 function storageGame(st, sec) {
     // add new values to the data object
     data.stars.push(st);
@@ -348,8 +347,8 @@ function storageGame(st, sec) {
     let getit = localStorage.seconds + ", " + localStorage.stars + ", " + localStorage.gameDate;
     console.log('Storage: '+getit);
 }
-getDataStorage();
-// Create timeFormat function that convert seconds to minutes and seconds format (00 : 00)
+
+// Create timeFormat function that converts seconds to minutes and seconds format (00 : 00)
 function timeFormat(gameSecond) {
     let minutes = `0${parseInt(gameSecond / 60)}`;
     let seconds = gameSecond % 60;
@@ -357,12 +356,13 @@ function timeFormat(gameSecond) {
     return minutes + ":" + seconds;
 }
 
+// Create timeFormat function that adds s at the end of plural value string
 function txtPlural(num , txt) {
     let txtPlural = (num > 1)? `${txt}s` : txt;
     return txtPlural;
 }
 
-//create date function
+//create date function to get date and time system, then return to a specefic format
 function dateStorage() {
     let today = new Date();
     let year = today.getFullYear();
@@ -370,12 +370,8 @@ function dateStorage() {
     let day = today.getDate();
     let hour = today.getHours();
     let minute = today.getMinutes();
-    return `${year}/${month}/${day} - ${hour}:${minute}`;
+    return `${year}/${month}/${day} - ${hour}:${minute}`; // returns string like (2018/4/26 - 11:57)
 }
-
-
-
-
 
 //Toggle ON/OFF sound effect when audio button is clicked 
 let audioButton = document.getElementById('audio');
@@ -394,18 +390,20 @@ function toggleAudioOnOff() {
     else {
         audioIcon.classList.replace('fa-volume-up', 'fa-volume-off');
     }
-    console.log(flipSound.volume);
 }
 
 //Score board
 
-let scoreBoard = $('#score-board');
+let scoreBoard = $('#score-board'); //Get score-board html element
 
+// Create score object that stores data object elements values 
 const score = {
     stars : data.stars,
     seconds : data.seconds,
     gameDate :data.gameDate         
 }
+
+// Function that loops over score object values and create HTML element wich be appended into score bord HTML element
 scoreData();
 function scoreData() {
 
@@ -466,12 +464,13 @@ function displayScoreBoard() {
 
 }
 
+// create a close button that allows player to close score board popup
 const close = document.querySelector('#close');
 close.addEventListener('click', event => {
     closePanel(scoreBoard);
 })
 
-// create function that close window panel
-function closePanel(panel) {
-    return panel.css('display', 'none');
+// create function that close window popup
+function closePanel(popup) {
+    return popup.css('display', 'none');
 }
