@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>SPORTS MEMORY GAME</title>
         <meta name="description" content="Front-end web developer Memory game project by ADEL LASSAG">
+        <!-- Set View port meta to support mobile devices -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Import jquery framework -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,50 +30,64 @@
         </header>
         <!-- Create Main element -->
         <main class="container">
-            <!--  -->
+            <!-- Create Header of main game -->
             <header id="game-board" class="score-panel">
+                <!-- Display a star rating (from 1 to 3) that reflects the player's performance -->
                 <ul class="stars pointer">
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>
+                    <!-- Display shortcut popup info when player hover stars element -->
                     <div class="shortcuts">
                         press <kbd>S</kbd> to to toggle displaying score game board.
                     </div>
                 </ul>
-                <div>
+                <!-- Display the current number of moves a player has made -->
+                <div id="player-moves">
                     <span id="moves">0</span>
                     <span id="text-moves">Move</span>
                 </div>
+                <!-- Display timer and initiate to 00:00 before player click on the first card -->
                 <div class="timer">
                     00:00
                 </div>
+                <!-- Display a restart button that allows the player to reset the game -->
                 <div id="restart" class="pointer" onclick="restart()">
                     <i class="fa fa-undo"></i>
+                    <!-- Display shortcut popup info when player hover restart button element -->
                     <div class="shortcuts">
                         press <kbd>R</kbd> to reload the game.
                     </div>
                 </div>
+                <!-- Display an audio button that allows the player to toggle sound ON/OFF -->
                 <div id="audio" class="pointer">
                         <i id="volume" class="fa fa-volume-up"></i>
                         <!-- import audio files -->
                         <audio id="flip-card">
                             <!-- Sound credit: https://freesound.org/people/Splashdust/sounds/84322/ -->
                             <source src="audio/flip-card-effect.ogg" type="audio/ogg">
+                            <!-- When the browser doesn't support audio feature, display a text instead  -->
                             Your browser does not support the audio element.
                         </audio>
+                        <!-- Display shortcut popup info when player hover the audio button element -->
                         <div class="shortcuts">
                             press <kbd>V</kbd> to On or Off the sound effects volume.
                         </div>
                 </div>
             </header>
+            <!-- Create section to display the game deck inside it created by JavaSript DOM  -->
             <section id="section-deck" class="container">
             </section>
+            <!-- Create section to display the popup score board inside it created by JavaSript DOM-->
             <section id="score-board">
+                <!-- create a close button for the popup score board -->
                 <div id="close" class="pointer">X</div>
             </section>
         </main>
+        <!-- Create the body footer to diplay additional info -->
         <footer class="container">
         </footer>
+        <!-- load the main JavaScript game -->
         <script src="js/app.js"></script>
     </body>
 </html>
