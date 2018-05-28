@@ -284,12 +284,12 @@ function restart() {
 let starsNum = 3;
 function starsRating() {
     // player will loose one star after 50 moves
-    if (count === 10) {
+    if (count === 12) {
         $('.stars li:last').css('color','grey');
         starsNum--; //Decrement number of stars
     }
     // player will loose the second star after 60 moves
-    if (count === 16) {
+    if (count === 18) {
         $('.stars li:odd').css('color','grey');
         starsNum--;
     }
