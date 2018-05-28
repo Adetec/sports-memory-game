@@ -106,16 +106,16 @@ let positionId= [];
 playGame();
 //Create function that loop event when player click on a card
 function playGame() {
-
+    let numberClicks = 0;
     for (const card of showMe) {
         card.addEventListener('click', function (event) {
-
+            numberClicks++;
             if (!card.classList.contains('open')) {
 
                 card.classList.add(...openCardClasses);
                 positionId.push(card.id);
                 //start the timer after first opened card 
-                if (positionId.length===1) {
+                if (numberClicks===1) {
                     timer();
                 }
                 //play flip sound effect
@@ -284,18 +284,13 @@ function restart() {
 let starsNum = 3;
 function starsRating() {
     // player will loose one star after 50 moves
-    if (count === 50) {
+    if (count === 10) {
         $('.stars li:last').css('color','grey');
         starsNum--; //Decrement number of stars
     }
     // player will loose the second star after 60 moves
-    if (count === 60) {
+    if (count === 16) {
         $('.stars li:odd').css('color','grey');
-        starsNum--;
-    }
-    // player will loose the last star after 100 moves
-    if (count === 100) {
-        $('.stars li:first').css('color','grey');
         starsNum--;
     }
 }
