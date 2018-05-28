@@ -114,9 +114,8 @@ function playGame() {
 
                 card.classList.add(...openCardClasses);
                 positionId.push(card.id);
-                incrementMoves();
-                //start the timer after first move
-                if (count===1) {
+                //start the timer after first opened card 
+                if (positionId.length===1) {
                     timer();
                 }
                 //play flip sound effect
@@ -147,7 +146,7 @@ let symbolCard = document.querySelectorAll('.open'); //Get opened cards elements
 //Create function that check if two opened cards matchs
 function checkMatched (){
     if (match.length === 2) { //if two cards are opened
-
+        incrementMoves();
         if (match[0][0].classList[1]==match[1][0].classList[1]) { //check if two cards matchs
 
             for (const id of positionId) { //loop over the matched cards
