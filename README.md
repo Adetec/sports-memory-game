@@ -23,7 +23,7 @@ The game randomly shuffles the cards. Player wins once all cards have successful
 *  If two cards are matched, both cards stay faced up, and their color are changed to green.
 *  if cards aren't matched, both cards are faced down.
 *  Each turn, a counter increments number of player moves.
-*  There are 3 stars, player will loose one star after 50 moves, then the second after 60 moves and 100 moves the last is gone.
+*  There are 3 stars, player will loose one star after 12 moves, then the second after 18 moves.
 *  The timer starts at the first move, player must finish matching all cards before 5 minutes, otherwise, timer stops and Game over popup message will be displayed.
 *  When player wins the game, a popup message is displayed to congratulate the player and asks if he want to play again. It tells him also how much time it took to win the game, and what the star rating was.
 * Player can restart game (reload web page - reset timer and stars rating), a popup is displayed and asks him if he want really restaring game.
