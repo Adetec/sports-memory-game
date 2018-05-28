@@ -3,7 +3,9 @@
  */
 
 // create array that store list of fontAwesome icon classes
-let symbols = ['football-ball','football-ball','volleyball-ball','volleyball-ball','quidditch','quidditch','futbol','futbol','table-tennis','table-tennis','hockey-puck','hockey-puck','baseball-ball','baseball-ball','basketball-ball','basketball-ball'];
+let symbols = ['football-ball', 'volleyball-ball', 'quidditch', 'futbol', 'table-tennis', 'hockey-puck', 'baseball-ball', 'basketball-ball'];
+// duplicate the list
+symbols = symbols.concat(symbols);
 
 /*
  * Display the cards on the page
